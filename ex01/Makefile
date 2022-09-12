@@ -1,0 +1,29 @@
+NAME = phonebook
+
+CLANG = c++
+
+FLAGS = -Wall -Wextra -Werror -std=c++98
+
+FILES = main.cpp  add.cpp search.cpp
+
+OFILES = $(FILES:.cpp=.o)
+
+LIBS = header.hpp
+
+all : $(NAME)
+
+$(NAME) : $(OFILES)
+	${CLANG} $^ -o $@ ${FLAGS}
+
+%.o : %.cpp $(LIBS)
+	$(CC) $(FLAGS) -o $@ -c $<
+
+clean : 
+	@rm -rf ${OFILES}
+
+fclean : clean
+	@rm -rf ${NAME}
+
+re : fclean all
+
+.PHONY : all clean fclean re
