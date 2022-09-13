@@ -8,7 +8,7 @@ FILES = main.cpp  add.cpp search.cpp
 
 OFILES = $(FILES:.cpp=.o)
 
-LIBS = header.hpp
+LIBS = Contact.hpp  PhoneBook.hpp
 
 all : $(NAME)
 

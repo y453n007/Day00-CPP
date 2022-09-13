@@ -1,4 +1,8 @@
-#include "header.hpp"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int	Error(int n)
 {
