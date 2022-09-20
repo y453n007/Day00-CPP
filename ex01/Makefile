@@ -16,7 +16,7 @@ $(NAME) : $(OFILES)
 	${CLANG} $^ -o $@ ${FLAGS}
 
 %.o : %.cpp $(LIBS)
-	$(CC) $(FLAGS) -o $@ -c $<
+	$(CLANG) $(FLAGS) -o $@ -c $<
 
 clean : 
 	@rm -rf ${OFILES}

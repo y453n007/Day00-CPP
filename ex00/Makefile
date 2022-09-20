@@ -13,6 +13,9 @@ all : $(NAME)
 $(NAME) : $(OFILES)
 	${CLANG} $^ -o $@ ${FLAGS}
 
+%.o : %.cpp
+	$(CLANG) $(FLAGS) -o $@ -c $<
+
 clean : 
 	@rm -rf ${OFILES}
 

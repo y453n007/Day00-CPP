@@ -1,16 +1,23 @@
+
+// ************************************************************************** //
+//                                                                            //
+//                      search.cpp for D00                                    //
+//                      Created: 2022/09/13 14:19:01                          //
+//                      Made by : yelgharo <yelgharo@student.42.fr>           //
+//                                                                            //
+// ************************************************************************** //
+
 #include "PhoneBook.hpp"
 
 
-void	print(PhoneBook &phone, int index, int i)
+void	PhoneBook::print( int index, int i )
 {
-	if (i != 0)
-	{
-		std::cout << "First Name : " << phone.contacts[index - 1].fname << std::endl;
-		std::cout << "Last Name : " << phone.contacts[index - 1].lname << std::endl;
-		std::cout << "NickName : " << phone.contacts[index - 1].sname << std::endl;
-		std::cout << "Phone Number : " << phone.contacts[index - 1].numero << std::endl;
-		std::cout << "Deep secret : " << phone.contacts[index - 1].secret << std::endl;
-	}
+	if (i != 0){
+	std::cout<<"First Name : "<< _contacts[index - 1].getFname()<< std::endl;
+	std::cout<<"Last Name : "<< _contacts[index - 1].getLname()<< std::endl;
+	std::cout<< "NickName : "<< _contacts[index - 1].getSname()<< std::endl;
+	std::cout<<"Phone Number : "<< _contacts[index - 1].getNumero()<< std::endl;
+	std::cout<<"Deep secret : "<< _contacts[index - 1].getSecret()<< std::endl;}
 }
 
 void	CondiPrint(std::string s)
@@ -26,7 +33,7 @@ void	CondiPrint(std::string s)
 	}
 }
 
-void	table(PhoneBook &phone, int &i)
+void	PhoneBook::table( int &i )
 {
 	std::cout << " ____________________________________________" << std::endl;
 	std::cout << "|  Index  | First Name| Last Name | NickName |" << std::endl;
@@ -35,26 +42,26 @@ void	table(PhoneBook &phone, int &i)
 		for (int j = 1; j <= i; j++)
 		{
 			std::cout << "|    " << j << "   " << " |";
-			CondiPrint(phone.contacts[j - 1].fname);
+			CondiPrint(_contacts[j - 1].getFname());
 			std::cout << " |";
-			CondiPrint(phone.contacts[j - 1].lname);
+			CondiPrint(_contacts[j - 1].getLname());
 			std::cout << " |";
-			CondiPrint(phone.contacts[j - 1].sname);
+			CondiPrint(_contacts[j - 1].getSname());
 			std::cout << "|";
 			std::cout << std::endl;
 		}
-		std::cout << " ____________________________________________" << std::endl;
+		std::cout <<" ____________________________________________"<< std::endl;
 
 }
 
-int	Search(PhoneBook &phone, int &i)
+int	PhoneBook::Search( int &i )
 {
 	int index;
 	std::stringstream ss;
 
 	std::cout << "******* Contacts Search *******" << std::endl;
 	std::string cmd;
-	table(phone, i);
+	table( i );
 	std::cout << "Enter The Contact Index  : ";
 	std::getline(std::cin, cmd);
 	ss << cmd;
@@ -68,8 +75,9 @@ int	Search(PhoneBook &phone, int &i)
 	if (index < 1 || index > 8)
 		return(Error(1));
 	if (i == 0)
-		return(Error(4));
-	print(phone, index, i);
+		return( Error( 4 ) );
+	print( index, i );
 	return (0);
 }
 
+// ************************************************************************** //

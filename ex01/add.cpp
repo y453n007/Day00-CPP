@@ -1,7 +1,12 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include "Contact.hpp"
+
+// ************************************************************************** //
+//                                                                            //
+//                      add.cpp for D00                                       //
+//                      Created: 2022/09/13 14:12:37                          //
+//                      Made by : yelgharo <yelgharo@student.42.fr>           //
+//                                                                            //
+// ************************************************************************** //
+
 #include "PhoneBook.hpp"
 
 int	Error(int n)
@@ -27,49 +32,57 @@ int checkNumber(std::string num)
 	return (0);
 }
 
-void to_Add(PhoneBook &phone, int &i)
+void PhoneBook::to_Add( int &i )
 {
 	int j = 1;
 	while (j < i)
 	{
-		phone.contacts[j - 1].fname = phone.contacts[j].fname;
-		phone.contacts[j - 1].lname = phone.contacts[j].lname;
-		phone.contacts[j - 1].sname = phone.contacts[j].sname;
-		phone.contacts[j - 1].numero = phone.contacts[j].numero;
-		phone.contacts[j - 1].secret = phone.contacts[j].secret;
+		_contacts[j - 1].setFname(_contacts[j].getFname());
+		_contacts[j - 1].setLname(_contacts[j].getLname());
+		_contacts[j - 1].setLname(_contacts[j].getLname());
+		_contacts[j - 1].setNumero(_contacts[j].getNumero());
+		_contacts[j - 1].setSecret(_contacts[j].getSecret());
 		j++;
 	}
 	i--;
 }
 
-int	Add(PhoneBook &phone, int &i)
+int	PhoneBook::Add(int &i)
 {
+	std::string tmp;
 	if (i == 8)
-		to_Add(phone, i);
+		to_Add( i );
 	std::cout << "******* Create a new contact *******" << std::endl;
 	std::cout << "First Name : ";
-	std::getline(std::cin, phone.contacts[i].fname);
-	if (!phone.contacts[i].fname[0])
+	std::getline(std::cin, tmp);
+	if (!tmp[0])
 		return (Error(3));
+	_contacts[i].setFname(tmp);
 	std::cout << "Last Name : ";
-	std::getline(std::cin, phone.contacts[i].lname);
-	if (!phone.contacts[i].lname[0])
+	std::getline(std::cin, tmp);
+	if (!tmp[0])
 		return (Error(3));
+	_contacts[i].setLname(tmp);
 	std::cout << "NickName : ";
-	std::getline(std::cin, phone.contacts[i].sname);
-	if (!phone.contacts[i].sname[0])
+	std::getline(std::cin, tmp);
+	if (!tmp[0])
 		return (Error(3));
+	_contacts[i].setSname(tmp);
 	std::cout << "Phone Number : ";
-	std::getline(std::cin, phone.contacts[i].numero);
-	if (!phone.contacts[i].numero[0])
+	std::getline(std::cin, tmp);
+	if (!tmp[0])
 		return (Error(3));
-	if (checkNumber(phone.contacts[i].numero))
+	if (checkNumber(tmp))
 		return (1);
+	_contacts[i].setNumero(tmp);
 	std::cout << "Your deep secret : ";
-	std::getline(std::cin, phone.contacts[i].secret);
-	if (!phone.contacts[i].secret[0])
+	std::getline(std::cin, tmp);
+	if (!tmp[0])
 		return (Error(3));
+	_contacts[i].setSecret(tmp);
 	i++;
 	std::cout << "******* Contact saved sucssesfuly *******" << std::endl;
 	return (0);
 }
+
+// ************************************************************************** //

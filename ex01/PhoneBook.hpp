@@ -1,3 +1,12 @@
+
+// ************************************************************************** //
+//                                                                            //
+//                      PhoneBook.hpp for D00                                 //
+//                      Created: 2022/09/13 18:20:28                          //
+//                      Made by : yelgharo <yelgharo@student.42.fr>           //
+//                                                                            //
+// ************************************************************************** //
+
 #ifndef PhoneBook_HPP
 # define PhoneBook_HPP
 
@@ -7,12 +16,21 @@
 #include "Contact.hpp"
 
 class PhoneBook {
-	private:
-	Contact contacts[8];
+
+private:
+
+	Contact _contacts[8];
+
+public:
+
+	int		Add( int &i );
+	void	to_Add( int &i );
+	int		Search( int &i );
+	void	table( int &i );
+	void	print( int index, int i );
+
 };
 
-int	Add(PhoneBook &phone, int &i);
-int	Search(PhoneBook &phone, int &i);
-int	Error(int n);
+int	Error( int n );
 
-#endif
+#endif // ******************************************************PhoneBook_HPP //
