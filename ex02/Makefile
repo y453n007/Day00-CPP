@@ -2,7 +2,7 @@ NAME = Account
 
 CLANG = c++
 
-#FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 FILES = Account.cpp  tests.cpp
 
@@ -11,10 +11,10 @@ OFILES = $(FILES:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OFILES) 
-	${CLANG} $^ -o $@ 
+	${CLANG} $^ -o $@ ${FLAGS} 
 
 %.o : %.cpp  Account.hpp
-	$(CLANG)  -o $@ -c $<
+	$(CLANG) $(FLAGS) -o $@ -c $<
 
 clean : 
 	@rm -rf ${OFILES}
