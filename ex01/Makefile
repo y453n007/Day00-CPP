@@ -4,7 +4,7 @@ CLANG = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-FILES = main.cpp  add.cpp search.cpp
+FILES = main.cpp Contact.cpp  add.cpp search.cpp
 
 OFILES = $(FILES:.cpp=.o)
 

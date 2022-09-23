@@ -11,10 +11,10 @@ OFILES = $(FILES:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OFILES) 
-	${CLANG} $^ -o $@ ${FLAGS} 
+	${CLANG} $^ -o $@ 
 
 %.o : %.cpp  Account.hpp
-	$(CLANG) $(FLAGS) -o $@ -c $<
+	$(CLANG)  -o $@ -c $<
 
 clean : 
 	@rm -rf ${OFILES}
