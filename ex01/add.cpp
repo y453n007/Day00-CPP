@@ -39,7 +39,7 @@ void PhoneBook::to_Add( int &i )
 	{
 		_contacts[j - 1].setFname(_contacts[j].getFname());
 		_contacts[j - 1].setLname(_contacts[j].getLname());
-		_contacts[j - 1].setLname(_contacts[j].getLname());
+		_contacts[j - 1].setSname(_contacts[j].getSname());
 		_contacts[j - 1].setNumero(_contacts[j].getNumero());
 		_contacts[j - 1].setSecret(_contacts[j].getSecret());
 		j++;
