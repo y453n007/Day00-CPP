@@ -19,6 +19,8 @@ int	Error(int n)
 		std::cout << "******* Nothing !! *******" << std::endl;
 	else if (n == 4)
 		std::cout << "Can't Found Contact" << std::endl;
+	else if (n == 5)
+		std::cout << "Nothing To Display" << std::endl;
 	return (1);
 }
 

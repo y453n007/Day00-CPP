@@ -76,6 +76,8 @@ int	PhoneBook::Search( int &i )
 		return(Error(1));
 	if (i == 0)
 		return( Error( 4 ) );
+	if (index > i)
+		return( Error( 5 ) );
 	print( index, i );
 	return (0);
 }
